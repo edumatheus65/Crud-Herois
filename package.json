@@ -1,0 +1,20 @@
+{
+  "name": "Crud-Herois",
+  "version": "1.0.0",
+  "description": "Uma suite de manipulação de teste",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edumatheus65/Crud-Herois.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edumatheus65/Crud-Herois/issues"
+  },
+  "homepage": "https://github.com/edumatheus65/Crud-Herois#readme"
+}
