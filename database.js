@@ -40,13 +40,17 @@ class Database {
         const dadosFiltrados = dados.filter(item => (id ? (item.id === id) : true))
         return dadosFiltrados
     }
-    async remove(id) {
-        const dados = await this.obterDadosArq()
-        const indice  = dados.findIndex(item => item.id === parseInt(id))
-        if(!indice) {
-            throw.Error('O usuario informado não existe')
+    async remover(id) {
+        if (!id) {
+            return await this.escreverArq([])
         }
-        dados.split(indice -1)
+        
+        const dados = await this.obterDadosArq()        
+        const indice = dados.findIndex(item => item.id === parseInt(id))
+        if (indice === -1) {
+            throw Error('O usuario informado não existe')
+        }
+        dados.splice(indice, 1)
         return await this.escreverDadosArq(dados)
     }
 }
