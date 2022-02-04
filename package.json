@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/edumatheus65/Crud-Herois/issues"
   },
-  "homepage": "https://github.com/edumatheus65/Crud-Herois#readme"
+  "homepage": "https://github.com/edumatheus65/Crud-Herois#readme",
+  "devDependencies": {
+    "mocha": "^9.2.0"
+  }
 }
