@@ -2,6 +2,7 @@ const {
     deepEqual,
     ok
 } = require('assert')
+// const { listar } = require('./database')
 const database = require('./database')
 
 const DEFAUT_ITEM_CADASTRAR = {
@@ -11,10 +12,19 @@ const DEFAUT_ITEM_CADASTRAR = {
 }
 
 describe('Suite de manipulação de herois', () => {
+    before(async () => {
+        await database.cadastrar(DEFAUT_ITEM_CADASTRAR)
+    })
     it('Deve pesquisar um heroi usando arquivos', async () => {
         const expected = DEFAUT_ITEM_CADASTRAR
         const [resultado] = await database.listar(DEFAUT_ITEM_CADASTRAR.id)
         deepEqual(resultado, expected)
+    })
+    it('deve cadastrar um heroi usando arquivos', async () => {
+        const expected = DEFAUT_ITEM_CADASTRAR
+        const resultado = await database.cadastrar(DEFAUT_ITEM_CADASTRAR)
+        const [actual] = await database.listar(DEFAUT_ITEM_CADASTRAR.id)
+        deepEqual(actual, expected)
     })
 })
 

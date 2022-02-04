@@ -21,6 +21,20 @@ class Database {
         await writeFileAsync(this.NOME_ARQ, JSON.stringify(dados))
         return true
     }
+    async cadastrar(heroi) {
+        const dados = await this.obterDadosArq()
+        const id = heroi.id <= 2 ? heroi.id : Date.now()
+        const heroidComId = {
+            id,
+            ...heroi
+        }
+        const dadosFinais = [
+            ...dados,
+            heroidComId
+        ]
+        const resultado = await this.escreverDadosArq(dadosFinais)
+        return resultado
+    }
     async listar(id){
         const dados = await this.obterDadosArq()
         const dadosFiltrados = dados.filter(item => (id ? (item.id === id) : true))
