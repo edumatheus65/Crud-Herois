@@ -49,8 +49,7 @@ describe('Suite de manipulação de herois', () => {
             poder: 'Dinheiro'
         }
         await database.atualizar(DEFAUT_ITEM_ATUALIZAR.id, novoDado)
-        const resultado = 
-
+        const [resultado] = await database.listar(DEFAUT_ITEM_ATUALIZAR.id)
         deepEqual(resultado, expected)
     })
 })
