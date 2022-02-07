@@ -1,19 +1,23 @@
-const Commander = require('commander')
-const Database = require('')
+const { Command, program } = require("commander");
+const Database = require("./database");
 
 async function main() {
-    Commander
-        .version('v1')
-        .option('-n, --nome [value]', "Nome do Heroi")
-        .option('-p, -- poder [value]', "Poder do Heroi")
+    const program = new command()
+    program
+    .version("v1")
+        .option("-n, --nome [value]", "Nome do Heroi")
+        .option("-p, --poder [value]", "Poder do Heroi")
 
-        .option('-c, --cadastrar', "Cadastrar um heroi")
+        .option("-c, --cadastrar", "Cadastrar um Heroi")
 
-        .parse(process.argv)
+        program.parse(process.argv);
+
+        const options = program.opts();
+        const heroi = new Heroi(options);
 
         try {
-            if (Commander.cadastrar) {
-                console.log(Commander)                
+            if (options.cadastrar) {
+                console.log(options)                
             }
 
         } catch (error) {
