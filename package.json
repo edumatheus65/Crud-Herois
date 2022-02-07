@@ -19,5 +19,8 @@
   "homepage": "https://github.com/edumatheus65/Crud-Herois#readme",
   "devDependencies": {
     "mocha": "^9.2.0"
+  },
+  "dependencies": {
+    "commander": "^9.0.0"
   }
 }
